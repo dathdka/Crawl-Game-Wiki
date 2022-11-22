@@ -4,7 +4,8 @@ const startBrowser = async () => {
     let browser
     try {
     browser = await puppeteer.launch({
-    //   headless: true,
+      // headless: true,
+      headless: false,
       ignoreDefaultArgs: ["--disable-extensions"],
       args: [
         "--no-sandbox",
@@ -13,7 +14,6 @@ const startBrowser = async () => {
         "--start-maximized",
       ],
       ignoreHTTPSErrors: true,
-      headless: false,
       defaultViewport: null,
     });
   } catch (error) {
