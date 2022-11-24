@@ -1,33 +1,18 @@
-const craftingMaterialsHandle = (item, tempMaterails) => {
-  tempMaterails.forEach((el) => {
-    const obj = {};
-    var quantity = parseInt(el.match(/\d+/g));
-    obj["name"] = el
-      .replace(" x" + quantity, "")
-      .replace(" x " + quantity, "")
-      .replace("x " + quantity, "")
-      .replace(quantity + 'x ', '')
-      .replace(quantity + ' x ', '')
-      .replace(quantity + ' x', '')
-    obj["quantity"] = quantity;
-    if (!isNaN(obj.quantity)){
-      for(f  of item.craftingMaterials)
-        if(f.name === obj.name )
-          return;
-      item.craftingMaterials.push(obj);
-    }else
-      return ;
-  });
-};
+const craftingMaterialsHandle = require("./propertiesHandler/craftingMaterials");
+const imageHandler = require("./propertiesHandler/imageHandler");
 
 const scrapEachProperty = (url, page) =>
   new Promise(async (resolve, reject) => {
-    await page.goto(url,{ waitUntil: "load", timeout: 0 });
+    await page.goto(url, { waitUntil: "load", timeout: 0 });
     await page.waitForSelector(
       "body > div.main-container > div.resizable-container > div.page.has-right-rail > main"
     );
     var item = {};
     try {
+      await page.waitForSelector('figure > a > img')
+      var imgLink = await page.$eval("figure > a > img", (item) => item.src);
+      console.log(imgLink);
+      await imageHandler(item, imgLink);
       const canContinue = await page.$("#mw-content-text > div > aside");
       const rawData = await page.$eval(
         "#mw-content-text > div > aside",
