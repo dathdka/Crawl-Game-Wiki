@@ -1,25 +1,21 @@
 const axios = require("axios");
 const firebase = require("../../../firebase");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fs = require('fs')
 const fetchImage = (imgLink) =>
   new Promise(async (resolve, reject) => {
-    await axios
-      .get(imgLink)
-      .then((res) => {
-        if (res?.data) resolve(res.data);
-        else resolve(null);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    await fetch(imgLink).then(res =>{
+      res.body.pipe(fs.createWriteStream('public/image/test.jpg'))
+      resolve();
+    })
   });
 
 const imageHandler = async (item, imgLink) => {
   try {
     var img = await fetchImage(imgLink);
-    firebase.file(new Date())
-    await firebase.upload('test/hello.txt')
-    console.log(await firebase.getFiles())
-    // firebase.upload(new Date(),blobFile)
+    // upload local
+    // await firebase.upload('test/hello.txt')
+    console.log((await firebase.getFiles()).length)
   } catch (error) {
     console.error(error);
   }
