@@ -1,4 +1,10 @@
-const scrapData = require('./scrapData')
+const scrapData = require("./scrapData");
+const info = require("./info");
+const crafting = require("./crafting");
+const canCrafting = require("./canCrafting");
 exports.controllers = {
-    scrapData,
-}
+  scrapData,
+  crafting,
+  canCrafting,
+  info,
+};

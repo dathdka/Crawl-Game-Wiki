@@ -1,1 +1,26 @@
 GET http://localhost:1235/api/scrap
+
+
+
+###
+POST http://localhost:1235/api/info
+Content-Type: application/json
+
+{
+    "itemName" : "bronze"
+}
+###
+POST http://localhost:1235/api/crafting
+Content-Type: application/json
+
+{
+    "itemName" : "bronze"
+}
+###
+
+POST http://localhost:1235/api/can-crafting
+Content-Type: application/json
+
+{
+    "itemName" : "bronze"
+}

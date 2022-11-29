@@ -11,8 +11,9 @@ const scrapEachProperty = (url, page) =>
     try {
       await page.waitForSelector('figure > a > img')
       var imgLink = await page.$eval("figure > a > img", (item) => item.src);
-      // console.log(imgLink);
-      await imageHandler(item, imgLink);
+
+      item['image'] = await imageHandler( imgLink);
+      
       const canContinue = await page.$("#mw-content-text > div > aside");
       const rawData = await page.$eval(
         "#mw-content-text > div > aside",

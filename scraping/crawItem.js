@@ -21,10 +21,12 @@ const crawItem = async () =>{
     try {
       for (const item of ItemsSrc) {
         const obj = await scrapEachProperty(item, page);
+        console.log(obj)
         const checkExists = await items.findOne({
           name: obj.name
         });
         if (checkExists) {
+          checkExists.image = obj.image
           checkExists.type = obj.type;
           checkExists.droppedBy = obj.droppedBy;
           checkExists.useage = obj.useage;
@@ -37,6 +39,7 @@ const crawItem = async () =>{
             type: obj.type,
             droppedBy: obj.droppedBy,
             useage: obj.useage,
+            image: obj.image,
             craftingMaterials: obj.craftingMaterials
           });
           console.log('created')
