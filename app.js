@@ -14,7 +14,7 @@ app.use('/api',router)
 
 const server = http.createServer(app)
 
-mongoose.connect(process.env.DB_LOCAL_URI).then(()=>{
+mongoose.connect(process.env.URI).then(()=>{
     server.listen(process.env.PORT,()=>{
         console.log(`server runing on port ${process.env.PORT}`)
     })
