@@ -1,5 +1,4 @@
 .env
-firebase.js
 getImg.js
 public
 node_modules
