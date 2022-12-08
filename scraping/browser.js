@@ -5,7 +5,6 @@ const startBrowser = async () => {
     try {
     browser = await puppeteer.launch({
       headless: true,
-      // headless: false,
       ignoreDefaultArgs: ["--disable-extensions"],
       args: [
         "--no-sandbox",
