@@ -1,8 +1,6 @@
-const axios = require("axios");
 const firebase = require("../../../firebase");
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const fs = require('fs');
-const { create } = require("domain");
 
 const getName = (imgLink) =>{
   var arrSplit = imgLink.split('/')

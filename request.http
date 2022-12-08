@@ -22,5 +22,13 @@ POST http://localhost:1235/api/can-crafting
 Content-Type: application/json
 
 {
+    "secretKey": "ThisIsKey",
+    "itemName" : "bronze"
+}
+###
+POST https://valheim.onrender.com/api/can-crafting
+Content-Type: application/json
+
+{
     "itemName" : "bronze"
 }
