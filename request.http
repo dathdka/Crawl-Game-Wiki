@@ -1,12 +1,12 @@
 GET http://localhost:1235/api/scrap
-
-
-
+###
+GET http://localhost:1235/api/getAllItem
 ###
 POST http://localhost:1235/api/info
 Content-Type: application/json
 
 {
+    "secretKey": "ThisIsKey",
     "itemName" : "bronze"
 }
 ###
@@ -26,9 +26,18 @@ Content-Type: application/json
     "itemName" : "bronze"
 }
 ###
+POST http://localhost:1235/api/getItemById
+Content-Type: application/json
+
+{
+    "secretKey": "ThisIsKey",
+    "id" : "637c9a53f8c7e15f1991c2b0"
+}
+###
 POST https://valheim.onrender.com/api/can-crafting
 Content-Type: application/json
 
 {
+    "secretKey": "ThisIsKey",
     "itemName" : "bronze"
 }
