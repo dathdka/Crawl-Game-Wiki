@@ -3,12 +3,14 @@ const info = require("./info");
 const crafting = require("./crafting");
 const canCrafting = require("./canCrafting");
 const getAllItem = require('./getAllItem');
-const getItemById = require('./getItemById')
+const getItemById = require('./getItemByID')
+const getItemByName = require('./getItemByName')
 exports.controllers = {
   scrapData,
   crafting,
   canCrafting,
   info,
   getAllItem,
-  getItemById
+  getItemById,
+  getItemByName
 };

@@ -8,9 +8,7 @@ const crafting = async (req, res) => {
     if (getMainItem) {
       var materialArray = [];
       await getAllMaterials(getMainItem.name, materialArray, 0);
-      res.status(200).json({
-        map: materialArray,
-      });
+      res.status(200).json(materialArray);
     } else {
       res.status(403).send("item not exsist");
     }
