@@ -18,7 +18,6 @@ Content-Type: application/json
     "itemName" : "bronzez"
 }
 ###
-###
 POST http://localhost:1235/api/crafting
 Content-Type: application/json
 
@@ -44,6 +43,14 @@ Content-Type: application/json
     "id" : "637c9a53f8c7e15f1991c2b0"
 }
 ###
+
+
+
+
+
+
+
+
 POST https://valheim.onrender.com/api/crafting
 Content-Type: application/json
 

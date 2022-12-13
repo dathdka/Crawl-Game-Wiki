@@ -1,6 +1,7 @@
 const items = require("../models/items");
 const getAllItemCanBeCraft = require("./shared/getAllItemCanBeCraft");
 const getAllMaterials = require("./shared/getAllMaterials");
+const getInfo = require("./shared/getInfo");
 
 const canCrafting = async (req, res) => {
   const { itemName } = req.body;
@@ -17,8 +18,8 @@ const canCrafting = async (req, res) => {
       //   await getAllMaterials(formula, materialArray, 0);
       //   formulaArray[formula] = materialArray;
       // }
-      // var item = Object.keys(formulaArray)
-      res.status(200).json(itemCanBeCraftArray);
+      const arrayObj = await getInfo(itemCanBeCraftArray)
+      res.status(200).json(arrayObj);
     } else res.status(404).send(`material doesn't exsist`);
   } catch (error) {
     console.error(error);
