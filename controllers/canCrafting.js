@@ -12,12 +12,6 @@ const canCrafting = async (req, res) => {
     if (material) {
       var itemCanBeCraftArray = [];
       await getAllItemCanBeCraft(material.name, itemCanBeCraftArray);
-      // var formulaArray = {};
-      // for (var formula of itemCanBeCraftArray) {
-      //   var materialArray = [];
-      //   await getAllMaterials(formula, materialArray, 0);
-      //   formulaArray[formula] = materialArray;
-      // }
       const arrayObj = await getInfo(itemCanBeCraftArray)
       res.status(200).json(arrayObj);
     } else res.status(404).send(`material doesn't exsist`);
