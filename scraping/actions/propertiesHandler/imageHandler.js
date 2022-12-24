@@ -26,9 +26,11 @@ const imageHandler = async (imgLink) => {
   try {
     // upload local and remove instantly
     var name = await fetchImage(imgLink)
-    await firebase.upload(`public/${name}`)
+    const [file] = await firebase.upload(`public/${name}`)
+    await file.makePublic()
+    let link = file.publicUrl()
     fs.unlinkSync(`public/${name}`)
-    return name
+    return link
   } catch (error) {
     console.log('something went wrong')
     console.error(error);

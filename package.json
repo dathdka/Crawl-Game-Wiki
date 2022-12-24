@@ -21,6 +21,7 @@
     "multer": "^1.4.5-lts.1",
     "node-fetch": "^3.3.0",
     "nodemon": "^2.0.20",
-    "puppeteer": "^19.2.2"
+    "puppeteer": "^19.2.2",
+    "uuidv4": "^6.2.13"
   }
 }

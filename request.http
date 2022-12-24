@@ -1,4 +1,9 @@
-GET http://localhost:1235/api/scrap
+POST  http://localhost:1235/api/scrap
+Content-Type: application/json
+
+{
+    "secretKey": "ThisIsKey"
+}
 ###
 GET http://localhost:1235/api/getAllItem
 ###
