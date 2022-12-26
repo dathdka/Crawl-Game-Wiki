@@ -7,6 +7,7 @@ const getItemById = async (req, res) => {
   var materialArray = [];
   await getAllMaterials(item.name, materialArray, 0);
   item['formula'] = formulaBuilder(materialArray);
+  item['materialArray'] = materialArray
   console.log(item.formula)
   res.status(200).json(item);
 };

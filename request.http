@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
     "secretKey": "ThisIsKey",
-    "itemName" : "bronzez"
+    "itemName" : "bronze"
 }
 ###
 POST http://localhost:1235/api/crafting
